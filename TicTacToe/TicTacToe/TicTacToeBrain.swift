@@ -9,5 +9,10 @@
 import Foundation
 
 class TicTacToeBrain {
-  
+  // function to check win
+    // checks where the items are placed
+    // check draw
+    // person turn should not be view controller
+    
 }
+
