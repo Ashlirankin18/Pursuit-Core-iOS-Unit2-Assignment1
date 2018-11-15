@@ -9,7 +9,7 @@
 import UIKit
 
 class TicTacToeBrain {
-    var gameStateActive: Bool
+    var gameStateActive: Bool // this can be  used when there is a draw
     init(gameStateActive:Bool){
         self.gameStateActive = gameStateActive
     }
