@@ -6,13 +6,30 @@
 //  Copyright © 2018 Pursuit. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class TicTacToeBrain {
-  // function to check win
-    // checks where the items are placed
-    // check draw
-    // person turn should not be view controller
-    
+    var gameStateActive: Bool
+    init(gameStateActive:Bool){
+        self.gameStateActive = gameStateActive
+    }
+class PlayerInfo {
+    var piece:GamePieces
+    var playerTurn: Bool
+    var personPiece = UIImage()
+    init(piece:GamePieces,playerTurn:Bool,personPiece:UIImage) {
+        self.piece = piece
+        self.playerTurn = playerTurn
+        self.personPiece = personPiece
+        }
+    }
+enum GamePieces: String{
+        case X = "X"
+        case O = "O"
+    }
+    struct GameBoard {
+        var grid:[[String]]
+    }
+   
 }
 
