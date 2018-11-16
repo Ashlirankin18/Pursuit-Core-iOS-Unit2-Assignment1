@@ -30,7 +30,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
     super.viewDidLoad()
-       
+        playerOneWins.text = "Times \(playerX.piece.rawValue) : \(playerX.timesWon)"
+        playerTwoWins.text = "Times Won \(playerO.piece.rawValue) : \(playerO.timesWon)"
   }
     //Methods:
     
@@ -61,63 +62,63 @@ class ViewController: UIViewController {
             sender.setImage(playerO.personPiece, for: .normal)
             playerTurnLabel.text = "Player Turn: X"
             GameBoard.grid[sender.row][sender.col] = playerO.piece.rawValue
-           
+           intMatrix[sender.row][sender.col] = 0
         }
-        
+       print(intMatrix)
     }
     
     func checksForWinningConditions(intGameBoard:[[Int]],buttons:[GameButton],label:UILabel) {
         var xCounter = 0
-        var oCounter = 0
+        var oCounter = 1
         for rows in 0..<intGameBoard[0].count {
             for _ in 0..<intGameBoard.count {
                 let sum = intGameBoard[rows].reduce(0){$0 + $1}
-               
                 if sum == 3 {
                      playerX.timesWon += 1
                     label.text = "\(playerX.piece.rawValue) WINS!"
-                    playerOneWins.text = "\(playerX.timesWon)"
+                    playerOneWins.text = "Times Won \(playerX.piece.rawValue) : \(playerX.timesWon)"
 
                 }
                 else if sum == 0 {
                      playerO.timesWon += 1
                     label.text = "\(playerO.piece.rawValue) WINS!"
-                    playerTwoWins.text = "\(playerO.timesWon)"
+                    playerTwoWins.text = "Times Won \(playerO.piece.rawValue) : \(playerO.timesWon)"
 
                 }
-                else if sum == 101 || sum == 101 || sum == 201 {
+                else if sum == 101 || sum == 201 {
                     xCounter += 1
-                   break
+                
                 }
                 else if sum == 2 || sum == 101 || sum == 200 {
                     oCounter += 1
-                    break
+                
                 }
                 break
                      }
+            
         }
+        print("this is xCounter: \(xCounter)")
+        print("this is oCounter: \(oCounter)")
     if xCounter == 3 {
-     
         label.text = "\(playerX.piece.rawValue) WINS!"
         gameButtonCollection.forEach{$0.isUserInteractionEnabled = false}
         playerX.timesWon += 1
-        playerOneWins.text = "\(playerX.timesWon)"
+        playerOneWins.text = "Times Won \(playerX.piece.rawValue) : \(playerX.timesWon)"
        
     }
-    else if oCounter == 2 {
-      
+    else if oCounter == 3 {
+         playerO.timesWon += 1
          label.text = "\(playerO.piece.rawValue) WINS!"
         gameButtonCollection.forEach{$0.isUserInteractionEnabled = false}
-        playerX.timesWon += 1
-        playerTwoWins.text = "\(playerO.timesWon)"
+        playerTwoWins.text = "Times Won \(playerO.piece.rawValue) : \(playerO.timesWon)"
   
         }
     
     }
     @IBAction func playAgain(_ sender: UIButton) {
+        playerTurnCounter = 0
         gameButtonCollection.forEach{$0.isUserInteractionEnabled = true}
         gameButtonCollection.forEach{$0.setImage(nil, for: .normal)}
-        playerTurnCounter = 0
         intMatrix = [[100,100,100],
                      [100,100,100],
                      [100,100,100],]
@@ -125,6 +126,7 @@ class ViewController: UIViewController {
                                                         [" "," "," "],
                                                         [" "," "," "]
             ])
+        playerTurnLabel.text = "Player X Turn"
     }
     
 }
