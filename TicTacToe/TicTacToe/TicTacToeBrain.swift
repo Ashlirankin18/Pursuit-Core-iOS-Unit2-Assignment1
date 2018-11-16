@@ -17,10 +17,12 @@ class PlayerInfo {
     var piece:GamePieces
     var playerTurn: Bool
     var personPiece = UIImage()
-    init(piece:GamePieces,playerTurn:Bool,personPiece:UIImage) {
+    var timesWon: Int
+    init(piece:GamePieces,playerTurn:Bool,personPiece:UIImage,timesWon:Int) {
         self.piece = piece
         self.playerTurn = playerTurn
         self.personPiece = personPiece
+        self.timesWon = timesWon
         }
     }
 enum GamePieces: String{
@@ -30,6 +32,4 @@ enum GamePieces: String{
     struct GameBoard {
         var grid:[[String]]
     }
-   
-}
-
+    }

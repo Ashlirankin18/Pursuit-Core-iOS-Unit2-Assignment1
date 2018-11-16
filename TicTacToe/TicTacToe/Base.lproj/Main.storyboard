@@ -124,8 +124,8 @@
                                     <action selector="buttonsBeingClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vDg-Sq-fq6"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z8R-xn-al3">
-                                <rect key="frame" x="20" y="116" width="374" height="25"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z8R-xn-al3">
+                                <rect key="frame" x="20" y="87" width="374" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="MMh-5f-VjM"/>
                                 </constraints>
@@ -133,21 +133,6 @@
                                     <fragment content="Welcome to Tic Tac Toe">
                                         <attributes>
                                             <font key="NSFont" size="17" name="ChalkboardSE-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xku-Ms-Kax">
-                                <rect key="frame" x="20" y="165" width="374" height="19"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="19" id="6N0-2f-f5s"/>
-                                </constraints>
-                                <attributedString key="attributedText">
-                                    <fragment content="Player's Turn:">
-                                        <attributes>
-                                            <font key="NSFont" size="13" name="ChalkboardSE-Bold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -192,9 +177,39 @@
                                 </constraints>
                                 <state key="normal" title="Play Again"/>
                                 <connections>
-                                    <action selector="playAgainButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="55o-QO-sPy"/>
+                                    <action selector="playAgain:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rHX-Co-xIR"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Player One Wins:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2yJ-bq-AI7">
+                                <rect key="frame" x="32" y="147" width="130" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Player Two Wins:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zm4-Yp-4bz">
+                                <rect key="frame" x="264" y="147" width="130" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xku-Ms-Kax">
+                                <rect key="frame" x="26" y="112" width="374" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="19" id="6N0-2f-f5s"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Player's Turn: X">
+                                        <attributes>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" size="13" name="ChalkboardSE-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.77887055839999997" green="0.36037936739999998" blue="0.40416090389999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -267,7 +282,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="playerOneWins" destination="2yJ-bq-AI7" id="fQ9-ip-EDf"/>
                         <outlet property="playerTurnLabel" destination="Xku-Ms-Kax" id="R7d-Wr-WaV"/>
+                        <outlet property="playerTwoWins" destination="Zm4-Yp-4bz" id="Ve9-Fp-fpN"/>
                         <outletCollection property="gameButtonCollection" destination="JHS-DP-Qv2" collectionClass="NSMutableArray" id="F3N-e2-0bf"/>
                         <outletCollection property="gameButtonCollection" destination="wf0-nf-8fu" collectionClass="NSMutableArray" id="VAP-Jd-Li6"/>
                         <outletCollection property="gameButtonCollection" destination="DrF-L2-xdo" collectionClass="NSMutableArray" id="zsm-hE-StU"/>
@@ -281,7 +298,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="47.826086956521742" y="20.758928571428569"/>
+            <point key="canvasLocation" x="331.8840579710145" y="-140.625"/>
         </scene>
     </scenes>
     <resources>
